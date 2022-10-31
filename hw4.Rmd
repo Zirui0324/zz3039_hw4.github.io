@@ -1,0 +1,13 @@
+---
+title: "Rey's informal website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+---
+
+## This is Rey's website that can't be put on a resume.
+
+Here's some personal information about Rey:[resume](resume.html)
+
