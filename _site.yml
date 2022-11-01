@@ -1,14 +1,14 @@
 name: "My oooold resume"
 output_dir: "."
 navbar:
-  title: "Home"
+  title: "Main"
   right:
-    - text: "About"
-      href: resume.html
     - icon: fa-envelope fa-lg
       href: mailto:<zz3039@cumc.columbia.com>
     - icon: fa-github fa-lg
       href: http://github.com/Zirui0324/
+    - icon: fa-brands fa-linkedin
+      href: https://www.linkedin.com/in/zirui-zhang-a0323b255/
 output:
   html_document:
     theme: cerulean

@@ -7,4 +7,6 @@ output:
     theme: yeti
 ---
 
-Here's a resume of Rey, be careful open it as it was last updated exact one million years ago, in November 2021. 
+Here's a resume of Rey, be careful open it as it was last updated a century ago, in November 2021. 
+
+![Resume](resume.pdf){}
