@@ -11,3 +11,25 @@ output:
 
 Here's some personal information about Rey:[resume](resume.html)
 
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+Create a flexdashboard using plotly for that includes at least three distinct plot types (e.g. scatterplots, line plots, bar plots, box plots, etc.)
+
+score grade boro zipcode cuisine_description
+
+
+```{r}
+data("rest_inspec")
+
+plot1 = 
+  rest_inspec %>% 
+  filter(boro == "MANHATTAN") %>%
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis")
+  
+```
+

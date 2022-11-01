@@ -367,6 +367,41 @@ class="section level2">
 <h2>This is Rey’s website that can’t be put on a resume.</h2>
 <p>Here’s some personal information about Rey:<a
 href="resume.html">resume</a></p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
+## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+## ✔ readr   2.1.2      ✔ forcats 0.5.2 
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(p8105.datasets)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;
+## 
+## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+## 
+## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<p>Create a flexdashboard using plotly for that includes at least three
+distinct plot types (e.g. scatterplots, line plots, bar plots, box
+plots, etc.)</p>
+<p>score grade boro zipcode cuisine_description</p>
+<pre class="r"><code>data(&quot;rest_inspec&quot;)
+
+plot1 = 
+  rest_inspec %&gt;% 
+  filter(boro == &quot;MANHATTAN&quot;) %&gt;%
+  plot_ly(y = ~score, color = ~cuisine_description, type = &quot;box&quot;, colors = &quot;viridis&quot;)</code></pre>
 </div>
 
 

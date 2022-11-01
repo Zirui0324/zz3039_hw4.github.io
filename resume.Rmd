@@ -7,6 +7,5 @@ output:
     theme: yeti
 ---
 
-Here's a resume of Rey, be careful open it as it was last updated a century ago, in November 2021. 
+Here's a resume of Rey, careful read it as it was last updated a century ago, in November 2021. 
 
-![Resume](resume.pdf){}
