@@ -1,0 +1,62 @@
+---
+title: "NYC Restaurant Inspection"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+data("rest_inspec")
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+rest_inspec %>% 
+  drop_na() %>% 
+  filter(boro == "MANHATTAN") %>%
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+rest_inspec %>% 
+  drop_na() %>% 
+  filter(cuisine_description == "Chinese") %>%
+  count(boro) %>% 
+  mutate(boro = fct_reorder(boro, n)) %>% 
+  plot_ly(x = ~boro, y = ~n, color = ~boro, type = "bar", colors = "viridis")
+
+```
+
+### Chart C
+
+```{r}
+rest_inspec %>% 
+  drop_na() %>%
+  filter(boro == "MANHATTAN",
+         cuisine_description == "Chinese") %>%
+  mutate(zipcode = as.character(zipcode)) %>% 
+  mutate(text_label = str_c("Zipcode: ", zipcode, "; Score: ", score)) %>% 
+  plot_ly(
+    x = ~zipcode, y = ~score, type = "scatter", mode = "markers",
+    color = ~score, text = ~text_label, alpha = 0.5)
+```
+
