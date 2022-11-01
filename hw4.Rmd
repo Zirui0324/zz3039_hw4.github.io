@@ -13,6 +13,7 @@ Here's some personal information about Rey:[Resume](resume.html)
 
 This is a dashboard about the inspection of some NYC restaurants created by Rey:[Inspection of NYC restaurants](plots.html) 
 
-
+* brief introduction
+* resume
 
 
