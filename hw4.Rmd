@@ -28,8 +28,26 @@ data("rest_inspec")
 
 plot1 = 
   rest_inspec %>% 
+  drop_na() %>% 
   filter(boro == "MANHATTAN") %>%
   plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis")
-  
+
+plot2 = 
+  rest_inspec %>% 
+  drop_na() %>% 
+  filter(cuisine_description == "Chinese") %>%
+  count(boro) %>% 
+  mutate(boro = fct_reorder(boro, n)) %>% 
+  plot_ly(x = ~boro, y = ~n, color = ~boro, type = "bar", colors = "viridis")
+
+plot3 = 
+  rest_inspec %>% 
+  drop_na() %>%
+  mutate(zipcode = as.character(zipcode)) %>% 
+  mutate(text_label = str_c("Zipcode: ", zipcode, "Score: ", score)) %>% 
+  plot_ly(
+    x = ~zipcode, y = ~score, type = "scatter", mode = "markers",
+    color = ~score, text = ~text_label, alpha = 0.5)
+plot3
 ```
 
