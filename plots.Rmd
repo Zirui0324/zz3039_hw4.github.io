@@ -28,7 +28,10 @@ Column {data-width=650}
 rest_inspec %>% 
   drop_na() %>% 
   filter(boro == "MANHATTAN") %>%
-  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis")
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis") %>% 
+  layout(title = "Scores of different types of restaurants in Manhattan",
+         xaxis = list(title = list(text = "Cuisine")),
+         yaxis = list(title = list(text = "Score")))
 ```
 
 Column {data-width=350}
@@ -42,7 +45,10 @@ rest_inspec %>%
   filter(cuisine_description == "Chinese") %>%
   count(boro) %>% 
   mutate(boro = fct_reorder(boro, n)) %>% 
-  plot_ly(x = ~boro, y = ~n, color = ~boro, type = "bar", colors = "viridis")
+  plot_ly(x = ~boro, y = ~n, color = ~boro, type = "bar", colors = "viridis") %>% 
+  layout(title = "Numbers of Chinese restaurants in different boros",
+         xaxis = list(title = list(text = "Boro")),
+         yaxis = list(title = list(text = "Number of Chinese restaurants")))
 
 ```
 
@@ -57,6 +63,9 @@ rest_inspec %>%
   mutate(text_label = str_c("Zipcode: ", zipcode, "; Score: ", score)) %>% 
   plot_ly(
     x = ~zipcode, y = ~score, type = "scatter", mode = "markers",
-    color = ~score, text = ~text_label, alpha = 0.5)
+    color = ~score, text = ~text_label, alpha = 0.5) %>% 
+  layout(title = "Scores of Chinese restaurants in Manhattan under different zipcodes",
+         xaxis = list(title = list(text = "Zipcode")),
+         yaxis = list(title = list(text = "Score of Chinese restaurants")))
 ```
 
