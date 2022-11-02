@@ -1,11 +1,13 @@
 ---
-title: "Rey's personal information"
+title: "Some Personal Information"
 output: 
   html_document:
     toc: true
     toc_float: true
     theme: yeti
 ---
+## Resume
 
-Here's a resume of Rey, careful read it as it was last updated a century ago, in November 2021. 
+Here's a resume of Rey, careful read it as it was last updated in November 2021. 
 
+<img src="Resume.jpeg" style="width:100%">
